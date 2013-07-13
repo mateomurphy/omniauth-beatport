@@ -7,6 +7,8 @@ require 'rack/test'
 require 'omniauth'
 require 'omniauth-beatport'
 
+OmniAuth.config.logger = Logger.new(false)
+
 RSpec.configure do |config|
   config.include WebMock::API
   config.include Rack::Test::Methods
