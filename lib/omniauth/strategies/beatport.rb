@@ -20,18 +20,17 @@ module OmniAuth
       
       info do
         {
+          'name' => "#{raw_info['first_name']} #{raw_info['last_name']}",
+          'email' => raw_info['register_email_address'],
           'nickname' => raw_info['username'],
           'first_name' => raw_info['first_name'],
-          'last_name' => raw_info["last_name"],
-          'email_address' => raw_info['register_email_address'],
-          'paypal_email_address' => raw_info['paypal_email_address'],
-          'beta_features' => raw_info['betaFeatures']
+          'last_name' => raw_info["last_name"]
         }
       end
       
       extra do
         {
-          :raw_info => raw_info
+          'raw_info' => raw_info
         }
       end
      

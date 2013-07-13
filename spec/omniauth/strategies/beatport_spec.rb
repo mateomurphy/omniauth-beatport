@@ -69,8 +69,24 @@ describe OmniAuth::Strategies::Beatport do
       last_request.env['omniauth.auth']['uid'].should eq(101)
     end
 
+    it 'sets the name' do
+      last_request.env['omniauth.auth']['info']['name'].should eq('first_name last_name')
+    end
+
+    it 'sets the email' do
+      last_request.env['omniauth.auth']['info']['email'].should eq('email@example.com')
+    end
+
     it 'sets the nickname' do
       last_request.env['omniauth.auth']['info']['nickname'].should eq('username')
+    end
+
+    it 'sets the first name' do
+      last_request.env['omniauth.auth']['info']['first_name'].should eq('first_name')
+    end
+
+    it 'sets the last name' do
+      last_request.env['omniauth.auth']['info']['last_name'].should eq('last_name')
     end
 
     it 'calls through to the master app' do
