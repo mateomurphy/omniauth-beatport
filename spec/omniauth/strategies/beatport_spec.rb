@@ -69,8 +69,8 @@ describe OmniAuth::Strategies::Beatport do
       last_request.env['omniauth.auth']['uid'].should eq(101)
     end
 
-    it '' do
-      puts last_request.env['omniauth.auth']['info']['username'].inspect
+    it 'sets the nickname' do
+      last_request.env['omniauth.auth']['info']['nickname'].should eq('username')
     end
 
     it 'calls through to the master app' do

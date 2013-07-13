@@ -18,8 +18,15 @@ module OmniAuth
         raw_info['id']
       }
       
-      info do 
-        raw_info.to_hash
+      info do
+        {
+          'nickname' => raw_info['username'],
+          'first_name' => raw_info['first_name'],
+          'last_name' => raw_info["last_name"],
+          'email_address' => raw_info['register_email_address'],
+          'paypal_email_address' => raw_info['paypal_email_address'],
+          'beta_features' => raw_info['betaFeatures']
+        }
       end
       
       extra do
