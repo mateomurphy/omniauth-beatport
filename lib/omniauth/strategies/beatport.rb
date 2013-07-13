@@ -27,8 +27,6 @@ module OmniAuth
           :raw_info => raw_info
         }
       end
-
-      # Return info gathered from the flickr.people.getInfo API call 
      
       def raw_info
         @raw_info ||= MultiJson.decode(access_token.get('/identity/1/person').body)
